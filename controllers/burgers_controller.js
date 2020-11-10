@@ -9,7 +9,7 @@ var burger = require("../models/burger.js");
 router.get("/", function (req, res) {
   burger.all(function (data) {
     var hbsObject = {
-      burger: data,
+      burgers: data,
     };
     console.log(hbsObject);
     res.render("index", hbsObject);
@@ -17,7 +17,7 @@ router.get("/", function (req, res) {
 });
 
 router.post("/api/burger", function (req, res) {
-  burger.create(["name", "sleepy"], [req.body.name, req.body.sleepy], function (
+  burger.create(["name", "eaten"], [req.body.name, req.body.eaten], function (
     result
   ) {
     // Send back the ID of the new quote

@@ -10,9 +10,9 @@ $(function () {
     // Send the PUT request.
     $.ajax("/api/burgers/" + id, {
       type: "PUT",
-      data: justeatenState,
+      data: justEatenState,
     }).then(function () {
-      console.log("changed eaten state to", justeaten);
+      console.log("changed eaten state to", justEaten);
       // Reload the page to get the updated list
       location.reload();
     });

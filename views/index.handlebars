@@ -4,9 +4,9 @@
         </div>
 <h2>Fresh Burger!</h2>
 <ul>
-  {{#each burger}}
+  {{#each burgers}}
     {{#unless eaten}}
-      {{> burgers/burger-block sleep=false}}
+      {{> burgers/burger-block eaten=false}}
     {{/unless}}
   {{/each}}
 </ul>
@@ -14,9 +14,9 @@
 <h2>Eaten burger!</h2>
 
 <ul>
-  {{#each burger}}
+  {{#each burgers}}
     {{#if eaten}}
-      {{> burgers/burger-block sleep=true}}
+      {{> burgers/burger-block eaten=true}}
     {{/if}}
   {{/each}}
 </ul>
