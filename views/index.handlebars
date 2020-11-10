@@ -1,32 +1,61 @@
-   <div class="col-md-12 text center">
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 text center">
             <img src="https://image.flaticon.com/icons/png/128/3075/3075929.png" class="burger-image" alt="Burger" />
-            <h1 style="color:red; text-align: center">Eat-Da-Burger</h1>
+            <h1 style="color:blue; text-align: center">Eat-Da-Burger</h1>
         </div>
-<h2>Fresh Burger!</h2>
-<ul>
-  {{#each burgers}}
-    {{#unless eaten}}
-      {{> burgers/burger-block eaten=false}}
-    {{/unless}}
-  {{/each}}
-</ul>
+    </div>
+    <div class="row">
+        <div class="col-md-6 text-center">
 
-<h2>Eaten burger!</h2>
 
-<ul>
-  {{#each burgers}}
-    {{#if eaten}}
-      {{> burgers/burger-block eaten=true}}
-    {{/if}}
-  {{/each}}
-</ul>
+            <h2 style="color:blue">Time To Eat!</h2>
 
-<h2>New Burger!</h2>
-<form class="create-form">
+            <ul>
+                {{#each burgers}}
+                {{#unless eaten}}
+                {{> burgers/burger-block eaten=true}}
+                {{/unless}}
+                {{/each}}
+            </ul>
 
-  <div class="form-group">
-    <label for="ca">Burger name:</label>
-    <input type="text" id="ca" name="name">
-  </div>
-  <button type="submit">Submit</button>
-</form>
+        </div>
+        <div class="col-md-6 text-center">
+
+            <h2 style="color:blue">Was It Good?</h2>
+
+            <ul>
+                {{#each burgers}}
+                {{#if eaten}}
+                {{> burgers/burger-block eaten=false}}
+                {{/if}}
+                {{/each}}
+            </ul>
+
+        </div>
+
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8 text-center">
+        <h2 style="color:blue">Add A Burger</h2>
+        <form class="create-form">
+
+            <div class="form-group">
+                <label style="color:blue" for="bn">Burger Name:</label>
+                <input type="text" id="bn" name="name">
+            </div>
+
+            <div style="color:blue" class="form-group">
+                <label style="color:blue" for="devour"> Please select:</label><br>
+                <input style="color:blue" type="radio" name="eaten" value="0" checked> Haven't tried this yet<br>
+                <input style="color:blue" type="radio" name="eaten" value="1"> I already ate this<br>
+            </div>
+
+            <button type="submit">Select Burger</button>
+        </form>
+    </div>
+    <div class="col-md-2"></div>
+</div>
