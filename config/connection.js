@@ -1,22 +1,30 @@
-// Set up MySQL connection.
-var mysql = require("mysql");
+// Importing the mysql module
+const mysql = require("mysql");
 
-var connection = mysql.createConnection({
-  host: "localhost",
-  port: 3306,
-  user: "root",
-  password: "",
-  database: "burger_db"
-});
+// Setting up connection config
+let connection;
+// Check if we have Jaws DB URL
+if (process.env.JAWSDB_URL) {
+    connection = mysql.createConnection(process.env.JAWSDB_URL);
+}
+else {
+    connection = mysql.createConnection({
+        host: "localhost",
+        // Your port; if not 3306
+        port: 3306,
+        // Your username
+        user: "root",
+        // Your password
+        password: "",
+        database: "burger_db"
+    });
+}
 
-// Make connection.
+// Connecting to the db
 connection.connect(function(err) {
-  if (err) {
-    console.error("error connecting: " + err.stack);
-    return;
-  }
-  console.log("connected as id " + connection.threadId);
+    if (err) throw err;
+    // console.log("connected as id " + connection.threadId);
 });
 
-// Export connection for our ORM to use.
+// Exporting the connection
 module.exports = connection;
